@@ -60,13 +60,15 @@ def CorrelatedGenerator(n, rho):
 def main():
     random.seed(17)
 
-    rho = -0.8
+    rho = 0.8
     res = CorrelatedGenerator(1000, rho)
     xs, ys = zip(*res)
 
     a = 1.0
     b = 0.0
-    xs = [a * x + b for x in xs]
+    #xs = [a * x + b for x in xs]
+
+    xs = [math.exp(x) for x in xs]
 
     print 'mean, var of x', thinkstats2.MeanVar(xs)
     print 'mean, var of y', thinkstats2.MeanVar(ys)
